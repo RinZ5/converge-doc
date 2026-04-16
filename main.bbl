@@ -1,0 +1,63 @@
+\begin{thebibliography}{10}
+
+\bibitem{schaerf1999}
+Andrea Schaerf.
+\newblock A survey of automated timetabling.
+\newblock {\em Artificial Intelligence Review}, 13(2):87--127, 1999.
+
+\bibitem{calendly_ref}
+Calendly official website [online, accessed 18-03-2026] \url{https://calendly.com}.
+
+\bibitem{savvycal_ref}
+Savvycal official website [online, accessed 18-03-2026] \url{https://savvycal.com}.
+
+\bibitem{doodle_ref}
+Doodle official website [online, accessed 18-03-2026] \url{https://doodle.com}.
+
+\bibitem{elsakka2015}
+Tarek El-Sakka.
+\newblock University course timetable using constraint satisfaction and optimization.
+\newblock {\em International Journal of Computing Academic Research (IJCAR)}, 4(3):83--95, 2015.
+
+\bibitem{ceschia2022}
+Sara Ceschia, Luca Di~Gaspero, and Andrea Schaerf.
+\newblock Educational timetabling: Problems, benchmarks, and state-of-the-art results.
+\newblock {\em arXiv preprint arXiv:2201.07525}, 2022.
+
+\bibitem{typescript_ref}
+Typescript official website [online, accessed 18-03-2026] \url{https://typescriptlang.org}.
+
+\bibitem{vuejs_ref}
+Vue official website [online, accessed 18-03-2026] \url{https://vuejs.org}.
+
+\bibitem{golang_ref}
+Golang official website [online, accessed 18-03-2026] \url{https://go.dev}.
+
+\bibitem{gin_ref}
+Gin official website [online, accessed 18-03-2026] \url{https://gin-gonic.com}.
+
+\bibitem{postgresql_ref}
+Postgressql official website [online, accessed 18-03-2026] \url{https://www.postgresql.org}.
+
+\bibitem{hexagonal_ref}
+Hexagonal website by aws [online, accessed 18-03-2026] \url{https://docs.aws.amazon.com/prescriptive-guidance/latest/cloud-design-patterns/hexagonal-architecture.html}.
+
+\bibitem{architecture_ref}
+Modular monolith vs microservice website [online, accessed 18-03-2026] \url{https://www.milanjovanovic.tech/blog/what-is-a-modular-monolith}.
+
+\bibitem{docker_ref}
+Docker official website [online, accessed 18-03-2026] \url{https://www.docker.com}.
+
+\bibitem{api_ref}
+Api website [online, accessed 18-03-2026] \url{https://aws.amazon.com/th/what-is/api/}.
+
+\bibitem{ddd_ref}
+Domain-driven design website [online, accessed 18-03-2026] \url{https://medium.com/devspree/domain-driven-design-934c495e7e0b}.
+
+\bibitem{rest_ref}
+Rest website [online, accessed 18-03-2026] \url{https://developer.mozilla.org/en-US/docs/Glossary/REST}.
+
+\bibitem{saas_ref}
+Saas website [online, accessed 18-03-2026] \url{https://aws.amazon.com/th/what-is/saas/}.
+
+\end{thebibliography}

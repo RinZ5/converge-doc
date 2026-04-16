@@ -1,0 +1,206 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[a4paper, margin=1in, bottom=1.5in]{geometry}
+% San-seriff
+% \usepackage{helvet}                       
+% \renewcommand{\familydefault}{\sfdefault}
+% San-seriff
+\usepackage{mathptmx} %Time New Roman
+\usepackage{fancyhdr}
+% \usepackage{tabularx}
+\usepackage{lastpage}
+\usepackage{tabularray}
+\UseTblrLibrary{booktabs}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{titlesec}
+\usepackage{titletoc}
+\usepackage{fmtcount}
+\usepackage{enumitem}
+\usepackage{graphicx}
+\usepackage[colorlinks=true, citecolor=black, linkcolor=black, urlcolor=blue]{hyperref}
+% \usepackage[hidelinks]{hyperref}
+\usepackage{csquotes}
+\usepackage{parskip}
+\usepackage{tabularx}
+\usepackage{multirow}
+\usepackage[table]{xcolor}
+\usepackage{pifont} % checkmark
+
+\definecolor{mygrey}{HTML}{d9d9d9}
+\definecolor{headerblue}{HTML}{2F5597}
+\definecolor{sectionbeige}{HTML}{F2E5C4}
+\definecolor{rowgray}{HTML}{F7F7F7}
+
+\titleformat{\section}[block]
+  {\normalfont\Large\bfseries}
+  {Chapter \Numberstring{section} \textbar}
+  {0.5em}
+  {}
+
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+
+\renewcommand{\contentsname}{TABLE OF CONTENTS}
+
+\titleformat{name=\section,numberless}[block]
+  {\normalfont\Large\bfseries\centering}
+  {}
+  {0pt}
+  {}
+
+\titlecontents{section}
+  [0em]
+  {\vspace{1ex}\bfseries}
+  {Chapter \Numberstringnum{\thecontentslabel} \textbar\ }
+  {}
+  {\hfill\contentspage}
+
+\titlecontents{subsection}
+  [3em]
+  {\normalfont}
+  {\thecontentslabel\ }
+  {}
+  {\hfill\contentspage}
+
+\titlecontents{subsubsection}
+  [6em]
+  {\normalfont}
+  {\thecontentslabel\ }
+  {}
+  {\hfill\contentspage}
+
+\setlength{\footskip}{31.45003pt}
+\fancyfoot[C]{
+    \footnotesize
+    \begin{tblr}{
+        width=\textwidth,
+        colspec={|X[2.5,l]|X[3.5,l]|X[1.2,l]|X[1.5,l]|X[1.5,l]|X[2,l]|},
+        hlines,
+        vlines,
+        column{1,3,5} = {bg=mygrey}
+    }
+    % Document Name & Converge\_Proposal\_v1.0.0 & Owner & PT, SP & Page & \thepage/\pageref{LastPage} \\
+    Document Name & Converge\_proposal\_v1.0.0 & Owner & PT, SP & Page & \thepage/\pageref{LastPage} \\
+    Document Type & Proposal & Release Date & 24-3-2026 & Print Date & - \\
+    \end{tblr}
+}
+
+\usepackage{tabularray}
+\UseTblrLibrary{booktabs}
+
+\newcommand{\mytable}[2]{
+\begingroup
+\hbadness=10000
+\noindent
+\begin{tblr}{
+    width=\textwidth,
+    colspec={#1},
+    hlines,
+    vlines,
+    row{1} = {bg=mygrey,font=\bfseries,halign=c},
+    column{1} = {bg=mygrey,font=\bfseries,halign=c},
+}
+#2
+\end{tblr}
+\endgroup
+}
+
+\begin{document}
+
+\begin{titlepage}
+    \thispagestyle{empty}
+    \centering
+    \vspace*{3cm}
+    {\Huge \textbf{Converge 4A}\par}
+    {\Large Automated Appointment Arrangement Application\par}
+    \vspace{1.5cm}
+    {\Large \textbf{Project Proposal}\par}
+    \vfill
+    {\large Peeranat Thiwongsa 662115034\par}
+    {\large Supawit Promma 662115049\par}
+    \vspace{1.5cm}
+    {\large Bachelor of Science\par}
+    {\large Software Engineering Program\par}
+    \vfill
+    {\large College of Arts, Media, and Technology\par}
+    {\large Chiang Mai University\par}
+    {\large 3\textsuperscript{rd} Year\par}
+    \vfill
+    \rule{0.8\textwidth}{0.5pt}\par
+    \vspace{0.8cm}
+    {\large \textbf{Project Advisor}\par}
+    \vspace{0.3cm}
+    {\large Apitchaka Singjai, Dr.Techn.\par}
+    \vspace*{1.5cm}
+\end{titlepage}
+
+\newpage
+\setcounter{page}{2}
+
+\section*{Document History}
+
+\vspace{0.5cm}
+\begingroup
+\hbadness=10000
+\noindent
+\begin{tblr}{
+    width=\textwidth,
+    colspec={|X[0.7,c]|X[1.6,c]|X[0.6,c]|X[0.9,c]|X[0.8,c]|X[0.8,c]|},
+    hlines,
+    vlines,
+    row{1} = {bg=mygrey,font=\bfseries},
+}
+Version & History & Status & Date & Editable & Reviewer \\
+v0.1.0 & - Create Chapter 1,2 & C & 18-3-2026 & PT, SP & - \\
+v0.1.0 & - Review Chapter 1,2 & R & 19-3-2026 & - & AS \\
+v0.1.1 & - Update Chapter 1 & U & 22-3-2026 & PT, SP & - \\
+v0.1.2 & - Update Chapter 2 & U & 23-3-2026 & PT, SP & - \\
+v0.1.3 & - Create Chapter 3 & C & 23-3-2026 & PT, SP & - \\
+v0.1.3 & - Review Chapter 1,2,3 & R & 23-3-2026 & - & AS \\
+v0.1.4 & - Update Chapter 1,2,3 & U & 24-3-2026 & PT,SP & - \\
+v0.1.4 & - Review Chapter 1,2,3 & R & 24-3-2026 & - & AS \\
+v1.0.0 & - Update Chapter 1,2,3 & U & 24-3-2026 & PT,SP & - \\
+v1.1.0 & - Update Chapter 1,2 & U & 16-3-2026 & PT,SP & - \\
+\end{tblr}
+\endgroup
+
+\vspace{0.5cm}
+\noindent
+*PT = Peeranat Thiwongsa \\
+*SP = Supawit Promma \\
+*AS = Apitchaka Singjai, Dr.Techn.
+
+\vspace{0.5cm}
+\noindent
+\textbf{Version:} \\
+document name vX.Y.Z \\
+X: External published \\
+Y: Test approval \\
+Z: Internal review
+
+\vspace{0.5cm}
+\noindent
+\textbf{Status:} \\
+C = Create \\
+R = Reviewed by advisor \\
+U = Update \\
+D = Delete
+
+\newpage
+\tableofcontents
+
+\input{chapter1}
+\input{chapter2}
+\input{chapter3}
+
+\newpage
+\section{References}
+
+\begingroup
+\renewcommand{\section}[2]{}
+\bibliographystyle{unsrt}
+\bibliography{references}
+\endgroup
+
+\end{document}
