@@ -7,13 +7,12 @@ The booking process begins with a customer selecting a subject, followed by choo
 
 When an instructor is booked for consecutive classes at different branches, administrators must manually calculate and block out their standard 30-minute commute buffer. Managing these transition times by hand across dozens of instructors significantly slows down the booking process. Furthermore, without a branch capacity tracking system, branches are prone to overbooking, leading to situations where teachers and students arrive at a branch only to discover that there is no physical space available.
 
-Ultimately, this repetitive workflow consumes an estimated 1 to 2 hours of administrative time each day and introduces significant human error into the weekly recurring schedule, and forces administrators to manually cross-reference multiple tables within a massive, cluttered spreadsheet just to find a single available teacher for a requested branch.
-
+Ultimately, this repetitive workflow consumes an estimated 1 to 2 hours of administrative time each day and introduces significant risk of human error into the weekly recurring schedule. It forces administrators to manually cross-reference multiple tables within a massive, cluttered spreadsheet just to find a single available teacher for a requested branch.
 \subsection{Problem Statement}
 Administrators at multi-branch tutoring schools need an automated, commute-aware scheduling system because the current manual workflow wastes up to 2 hours of administrative time daily. The process requires sending at least three messages per booking, relies on a cluttered spreadsheet that obscures operational insights, and frequently results in branch overbooking. To resolve this, the administration requires an algorithmic system capable of automatically evaluating inter-branch travel times and making sure schedules is optimal.
 
 \subsection{Purpose}
-The primary purpose of the Converge application is to develop an automated scheduling and resource management system that eliminates the operational bottlenecks and inefficiency associated with manual booking in multi-branch tutoring centers. By replacing fragmented spreadsheet workflows and repetitive messaging with an intelligent, commute-aware engine, this project aims to provide administrators with a centralized platform to seamlessly align student requests, instructor availability, and physical branch capacity in real-time.
+The primary purpose of the Converge application is to develop an automated scheduling and resource management system that highly mitigates the operational bottlenecks and inefficiencies associated with manual booking in multi-branch tutoring centers.
 
 \subsection{Target Users}
 The target users of Converge are categorized into primary users, who interact directly with the scheduling interface, and secondary users, representing the organizations that benefit from the system's efficiency.
@@ -32,10 +31,10 @@ The target users of Converge are categorized into primary users, who interact di
 This project focuses on the design and development of Converge, an enterprise-grade scheduling and resource management system utilizing heuristic optimization for multi-branch tutoring centers. The architecture replaces manual, error-prone workflows with an automated decision-support pipeline:
 \begin{enumerate}
     \item \textbf{Automated Data Ingestion Form:} An account-less, structured web form replacing unstructured manual schedule entry, ensuring all instructor availability is normalized into discrete binary matrices before entering the database.
-    \item \textbf{Constraint Satisfaction AI Engine:} A backend algorithm that evaluates multiple requirements (instructor availability, branch capacity) to guarantee valid, conflict-free schedules while prioritizing administrative preferences.
+    \item \textbf{Constraint Satisfaction AI Engine:} A backend algorithm and booking interface that evaluates multiple requirements (instructor availability, branch capacity) to output optimal schedules. It exposes Explainable AI (XAI) trace logs directly within the booking view, So then admin can understand the engine decisions.
     \item \textbf{Travel Buffer System:} A configuration-driven module that utilizes a customizable, admin-defined travel duration matrix between branches. This automatically injects physical commute buffers, instantly pruning the combinatorial search space without relying on external geographic APIs.
     \item \textbf{Branch Capacity Monitoring:} Monitors concurrent bookings against the fixed physical capacity of each branch, explicitly flagging full time slots to prevent overbooking and ensuring students are never left without physical space.
-    \item \textbf{Interactive XAI Decision Dashboard:} A centralized web interface that exposes the heuristic scoring of the backend engine, allowing staff to rapidly understand algorithmic decisions and manually negotiate alternative times with clients based on clear logistical data.
+    \item \textbf{Converge Hub:} A centralized interface that replaces static spreadsheets, acting as the primary summary dashboard and master calendar view for day-to-day operational oversight.
     \item \textbf{Automated Disaster Recovery:} Scheduled, asynchronous database snapshot generation to ensure business continuity and data sovereignty for the B2B client.
 \end{enumerate}
 \textbf{Out of Scope}
@@ -46,16 +45,17 @@ This project focuses on the design and development of Converge, an enterprise-gr
 \end{enumerate}
 
 \subsection{Feature Map}
-\vspace{0.5cm}
+% \vspace{0.5cm}
 \begingroup
 \hbadness=10000
 \noindent
-\begin{tblr}{
+\begin{longtblr}[label=none]{
     width=\textwidth,
     colspec={X[l]|X[l]|X[0.6,l]|X[l]},
     hlines,
     vlines,
     row{1} = {bg=mygrey,font=\bfseries,halign=c},
+    rowhead = 1
 }
 Pain Point &
 Feature Description &
@@ -66,7 +66,7 @@ An account-less, structured web form where teachers select their identity to sub
 Data-Ingest Form &
 Drastically reduce manual data entry required for instructor availability. \\
 Manual booking workflows waste 1-2 hours daily on complex spreadsheet cross-referencing. &
-Evaluates instructor, room, and time variables as a formal CSP to ensure valid conflict-free schedules. &
+Evaluates variables as a formal CSP to output valid, conflict-free schedules, while exposing Explainable AI (XAI) trace logs directly in the booking view. &
 Constraint Satisfaction AI Engine &
 Reduce average booking time to under 2 minutes. \\
 Manual transit calculation is highly vulnerable to human error. &
@@ -78,12 +78,12 @@ Monitors concurrent bookings against the fixed physical capacity of each branch,
 Capacity-Check &
 Greatly reduce branch overbooking. \\
 Static spreadsheets create visual complexity and obscure real-time operational insights. &
-A centralized web interface offering real-time visibility, filtered views, and AI decision trace logs. &
+A centralized interface featuring a master calendar view and operational filters for day-to-day oversight. &
 Converge Hub &
-Complete migration from Excel to the web dashboard as the single source of truth. \\
+Reduce the reliance of Excel to the dashboard for schedule summarization. \\
 Without automated disaster recovery, a system failure or database corruption could permanently erase all multi-branch schedules and halt business operations. &
 Generates scheduled, asynchronous database snapshots to provide secure, automated recovery points &
 Auto-Backup &
 Maintain business continuity by enabling rapid system restoration from automated daily snapshots. \\
-\end{tblr}
+\end{longtblr}
 \endgroup

@@ -1,6 +1,5 @@
 \newpage
 \section{Project Plan}
-% \subsection{Product Perspective}
 \subsection{Objectives}
 The primary objective of this project is to successfully design, develop, and deploy the Converge scheduling system. By the end of the development lifecycle, the project aims to achieve the following measurable goals:
 \begin{enumerate}
@@ -29,14 +28,14 @@ The primary objective of this project is to successfully design, develop, and de
 \end{center}
 \textbf{2.Modular Monolith Deployment Architecture}
 \begin{center}
-    \includegraphics[width=1\textwidth]{images/converge_monolith.png}
+    % \includegraphics[width=1\textwidth]{images/converge_monolith.png}
+    \includegraphics[width=1\textwidth]{images/monolith.png}
 \end{center}
 \subsection{Use Case Diagram}
 \begin{center}
-    \includegraphics[width=1\textwidth]{images/converge_usecase.png}
+    \includegraphics[width=1\textwidth]{images/proposal_usecase.png}
 \end{center}
 
-\newpage
 \subsection{Product Features}
 
 \subsubsection{Automated Data Ingestion Form}
@@ -46,7 +45,7 @@ The primary objective of this project is to successfully design, develop, and de
 \begin{itemize}
     \item \textbf{Structured Input:}
     \begin{itemize}
-        \item Replaces unstructured LINE chat paragraphs with a strict data validation layer.
+        \item Replaces unstructured google form paragraphs with a strict data validation layer.
     \end{itemize}
     
     \item \textbf{Data Normalization:}
@@ -67,13 +66,19 @@ The primary objective of this project is to successfully design, develop, and de
     
     \item \textbf{Constraint-Based Filtering:}
     \begin{itemize}
-        \item Evaluates hard limits (instructor availability, branch capacity) to mathematically guarantee conflict-free schedules.
+        \item Evaluates hard limits (instructor availability, branch capacity) to output optimal schedule rater than attempting to brute-force it.
     \end{itemize}
     
     \item \textbf{Heuristic Auto-Suggestion:}
     \begin{itemize}
         \item If exact requests fail, the engine uses heuristic scoring to instantly suggest the next best optimal alternatives in real-time.
     \end{itemize}
+
+    \item \textbf{Explainable AI (XAI) Trace Logs:}
+    \begin{itemize}
+        \item Provides a transparent debug view directly within the booking interface, allowing administrators to see the exact CSP constraints that drove the engine's decision.
+    \end{itemize}
+
 \end{itemize}
 
 \subsubsection{Travel Buffer System}
@@ -118,24 +123,19 @@ The primary objective of this project is to successfully design, develop, and de
     \end{itemize}
 \end{itemize}
 
-\subsubsection{Interactive XAI Decision Dashboard}
-\textbf{Description:} A centralized web interface that replaces static spreadsheets, acting as the administration's single source of truth and Explainable AI (XAI) hub. \\
+\subsubsection{Converge Hub}
+\textbf{Description:} A centralized interface that replaces static spreadsheets for day-to-day operations and schedule summarization. \\
 \textbf{Actor:} Admin \\
 \textbf{Details:}
 \begin{itemize}
-    \item \textbf{Instructor Booking List:}
+    \item \textbf{Master Schedule View:}
     \begin{itemize}
-        \item Displays a structured, real-time list of all teachers and their complete set of booked classes across all dates.
-    \end{itemize}
-    
-    \item \textbf{Decision Trace Logs:}
-    \begin{itemize}
-        \item Exposes the heuristic scoring of the backend engine, visually explaining why certain times are blocked (e.g., commute violations or capacity limits) to aid staff in client negotiations.
+        \item A comprehensive, interactive calendar interface designed to phase out legacy spreadsheets. It displays all booked sessions, instructor assignments, and travel buffers across all branches in real-time.
     \end{itemize}
     
     \item \textbf{Operational Filtering:}
     \begin{itemize}
-        \item Enables instant filtering by specific instructors, branches, and dates without the visual clutter of standard spreadsheet software.
+        \item Enables filtering by specific instructors, branches, and dates without the visual clutter of standard spreadsheet software.
     \end{itemize}
 \end{itemize}
 
@@ -171,9 +171,7 @@ Furthermore, we realized that a Continuous Flow (Kanban) fits our dynamics much 
     \item \textbf{Single Organization Focus:} The architecture is designed for a single tutoring business with multiple physical branches. it is not a multi-tenant SaaS for multiple independent companies.
 \end{enumerate}
 
-\newpage
 \subsection{Milestones}
-
 \textbf{Phase 1: Proposal} — (30 March 2026 - 10 April 2026)\\
 \input{tables/milestone1}
 \begin{center}
@@ -200,5 +198,26 @@ Furthermore, we realized that a Continuous Flow (Kanban) fits our dynamics much 
 \begin{center}
     \includegraphics[width=1\textwidth]{images/final_progress.png}
 \end{center}
-
 \input{tables/progress}
+
+\subsection{Risk Management}
+\begingroup
+\hbadness=10000
+\noindent
+\begin{longtblr}[label=none]{
+    width=\textwidth,
+    colspec={X[1,l]|X[2,l]},
+    hlines,
+    vlines,
+    row{1}={bg=mygrey,font=\bfseries,halign=c},
+    rowhead=1
+}
+Risk & Mitigation Strategy \\
+Team member unavailability due to illness or accident &
+Kanban workflow allows remaining member to pick up tasks and AI-assisted development as fallback if project completion is at risk \\
+Instructors are used to the current Google Form layout. Converge's new form may confuse them and cause incorrect availability data to be submitted &
+Design the new form to feel familiar to the existing Google Form. Test with one or two instructors before full rollout. Admin can manually correct any wrong submissions as a fallback \\
+The CSP engine may work fine during development with small test data, but slow down significantly when processing a full week of real availability across all instructors and branches &
+Set a clear performance target early (e.g. results returned within 3 seconds). Test the engine with realistic data volumes before the Progress I presentation, not just small dummy data \\
+\end{longtblr}
+\endgroup
