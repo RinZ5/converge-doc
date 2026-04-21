@@ -19,7 +19,7 @@ The target users of Converge are categorized by their level of interaction with 
 
 \subsubsection*{Primary Target Users}
 \begin{enumerate}
-    \item Administrators are the primary operators who use the system daily to process parent requests. Their goal is to finalize complex, multi-branch schedules instantly while the customer is present. This automated workflow eliminates the operational risks of manual scheduling, specifically preventing branch overbooking and excessive wait times that could harm the school's reputation.
+    \item Administrators are the primary operators who use the system daily to process parent requests. Their goal is to finalize complex, multi-branch schedules instantly while the customer is present. This automated workflow eliminates the operational risks of manual scheduling, specifically preventing branch overbooking and excessive wait times that could harm the school's reputation. Additionally, administrators utilize the system to manage the tutoring center's instructor roster and maintain up-to-date staff contact details.
 \end{enumerate}
 
 \subsubsection*{Secondary Target Users}
@@ -34,7 +34,7 @@ This project focuses on the design and development of Converge, an enterprise-gr
     \item \textbf{Constraint Satisfaction AI Engine:} A backend scheduling engine that balances variables like instructor availability and branch capacity to generate conflict-free schedules. It includes a transparent decision log, so administrators can easily understand how the engine arrived at its suggestions.
     \item \textbf{Travel Buffer System:} A configurable module that automatically calculates and applies physical commute times between branches. This ensures instructors are given travel windows without the system needing to rely on third-party mapping APIs.
     \item \textbf{Branch Capacity Monitoring:} A tracking module that compares concurrent bookings against the physical limits of each branch. It automatically flags full time slots to prevent overbooking and guarantee physical space for every student.
-    \item \textbf{Converge Hub:} A centralized master calendar that replaces static spreadsheets, allowing administrators to view all multi-branch schedules at a glance or instantly filter by specific instructors.
+    \item \textbf{Converge Hub:} A centralized master calendar and administrative dashboard that replaces static spreadsheets. It allows administrators to view all multi-branch schedules at a glance, instantly filter by specific instructors, and securely manage the center's staff roster.
     \item \textbf{Automated Disaster Recovery:} A scheduled backup system that generates regular database snapshots, ensuring business continuity and rapid restoration in the event of a system failure.
 \end{enumerate}
 \textbf{Out of Scope}
@@ -78,8 +78,8 @@ Lack of capacity tracking leads to overbooking a branch, leaving teachers and st
 Monitors concurrent bookings against the fixed physical capacity of each branch, flagging full time slots to prevent overbooking. &
 Capacity-Check &
 Greatly reduce branch overbooking. \\
-Static spreadsheets create visual complexity and obscure real-time operational insights. &
-A centralized interface featuring a master calendar view and operational filters for day-to-day oversight. &
+Static spreadsheets create visual complexity, obscure real-time operational insights, and scatter staff management across disparate files. &
+A centralized interface featuring a master calendar view, operational filters for day-to-day oversight, and built-in instructor roster management. &
 Converge Hub &
 Reduce the reliance of Excel to the dashboard for schedule summarization. \\
 Without automated disaster recovery, a system failure or database corruption could permanently erase all multi-branch schedules and halt business operations. &
