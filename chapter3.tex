@@ -137,6 +137,11 @@ The primary objective of this project is to successfully design, develop, and de
     \begin{itemize}
         \item Enables filtering by specific instructors, branches, and dates without the visual clutter of standard spreadsheet software.
     \end{itemize}
+
+    \item \textbf{Instructor Roster Management:}
+    \begin{itemize}
+        \item A sub-module within the Hub allowing administrators to add new teachers to the system, update their contact details, or deactivate profiles if they leave the tutoring center.
+    \end{itemize}
 \end{itemize}
 
 \subsubsection{Automated Disaster Recovery}
@@ -159,19 +164,19 @@ The primary objective of this project is to successfully design, develop, and de
 \textbf{UC-01 Submit Availability} \\
 \textbf{FR-1.1} The system must display a clearly structured web form for teachers to fill in their availability. \\
 \textbf{FR-1.2} The system must allow teachers to access and submit free time information without requiring a user account. \\
-\textbf{FR-1.3} The system requires the instructor to select their identity before beginning to fill in the information. \\
+\textbf{FR-1.3} The system requires the instructor to select their identity from a pre-populated list before beginning to fill in the information. \\
 \textbf{FR-1.4} The system must validate the data before saving to prevent incorrect data entry. \\
-\textbf{FR-1.5} The system must automatically convert the idle time data into discrete binary matrices. \\
+\textbf{FR-1.5} The system must automatically convert the availability data into discrete binary matrices. \\
 \textbf{FR-1.6} The system needs to record the transformed free time data into the database. \\
 \\
 \textbf{UC-02 Process Booking Request} \\
 \textbf{FR-2.1} The system must allow the administrator to enter the desired subject and target branch for booking. \\
 \textbf{FR-2.2} The system must evaluate limitations, including instructor availability and branch capacity, to create a compliant schedule. \\
-\textbf{FR-2.3} The system uses heuristic scoring to immediately suggest the best option if no results matching the specific request are found. \\
+\textbf{FR-2.3} The system uses heuristic scoring to suggest the best option within 5 seconds if no results matching the specific request are found. \\
 \textbf{FR-2.4} The system must display the XAI Trace Logs decision records within the booking screen so that the administrator can see the CSP conditions used by the system in making decisions. \\
 \textbf{FR-2.5} The system needs to calculate the number of concurrent bookings against the maximum capacity set for each branch. \\
 \textbf{FR-2.6} The system needs to track the total capacity threshold of each branch, instead of specifying individual classroom names. \\
-\textbf{FR-2.7} The system must display "At Capacity" during periods when new bookings would cause the number of classes to exceed the branch's capacity limit. \\
+\textbf{FR-2.7} The system must display \enquote{At Capacity} during periods when new bookings would cause the number of classes to exceed the branch's capacity limit. \\
 \textbf{FR-2.8} The system must systematically prevent branch overbooking before confirming the class schedule. \\
 \\
 \textbf{Business Rules of UC-02} \\
@@ -184,20 +189,22 @@ The primary objective of this project is to successfully design, develop, and de
 \textbf{FR-3.2} The system automatically uses a default travel time of 30 minutes for branches that have not been set. \\
 \textbf{FR-3.3} The system must automatically calculate and adjust the available start time for instructors based on the set travel time. \\
 \textbf{FR-3.4} The system must automatically exclude physically impossible transit paths from timetable searches without relying on external APIs. \\
-\textbf{FR-3.5} The system must clearly display the calculated travel time on the master schedule using the words "Travel Needed". \\
+\textbf{FR-3.5} The system must clearly display the calculated travel time on the master schedule using the words \enquote{Travel Needed}. \\
 \\
 \textbf{Business Rules of UC-03} \\
 \textbf{BR-4} If class scheduling requires an instructor to teach at different branches consecutively, the system must always enforce a commute buffer. If a specific travel duration for that branch pair is not configured, the system will apply a default travel buffer of 30 minutes. \\
 \\
-\textbf{UC-04 View dashboard} \\
+\textbf{UC-04 Converge Hub} \\
 \textbf{FR-4.1} The system must display the Master Schedule View, which is designed to replace traditional spreadsheets. \\
 \textbf{FR-4.2} The system must display all booked sessions in real-time. \\
 \textbf{FR-4.3} The system must display instructor assignments on the dashboard. \\
 \textbf{FR-4.4} The system must display travel buffer information between branches on the dashboard. \\
-\textbf{FR-4.5} The system must display "Travel Needed" on the Master Schedule view for the calculated trip. \\
+\textbf{FR-4.5} The system must display \enquote{Travel Needed} on the Master Schedule view for the calculated trip. \\
 \textbf{FR-4.6} The system must have an operational filtering function based on the teacher's name. \\
 \textbf{FR-4.7} The system must have a function to filter data by branch. \\
 \textbf{FR-4.8} The system must have a function to filter data by date. \\
+\textbf{FR-4.9} The system must allow administrators to create a new instructor profile by entering their name and contact details. \\
+\textbf{FR-4.10} The system must allow administrators to edit or deactivate existing instructor profiles within the Hub. \\
 \\
 \textbf{UC-05 Execute automated backup} \\
 \textbf{FR-5.1} The system must be able to automatically create database snapshots according to a scheduled time. \\
@@ -224,6 +231,7 @@ Furthermore, we realized that a Continuous Flow (Kanban) fits our dynamics much 
     \item \textbf{Single Organization Focus:} The architecture is designed for a single tutoring business with multiple physical branches. it is not a multi-tenant SaaS for multiple independent companies.
 \end{enumerate}
 
+\newpage
 \subsection{Milestones}
 \textbf{Phase 1: Proposal} — (30 March 2026 - 10 April 2026)\\
 \input{tables/milestone1.tex}
