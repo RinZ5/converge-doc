@@ -155,6 +155,55 @@ The primary objective of this project is to successfully design, develop, and de
     \end{itemize}
 \end{itemize}
 
+\subsection{Software Requirements Specification}
+\textbf{UC-01 Submit Availability} \\
+\textbf{FR-1.1} The system must display a clearly structured web form for teachers to fill in their availability. \\
+\textbf{FR-1.2} The system must allow teachers to access and submit free time information without requiring a user account. \\
+\textbf{FR-1.3} The system requires the instructor to select their identity before beginning to fill in the information. \\
+\textbf{FR-1.4} The system must validate the data before saving to prevent incorrect data entry. \\
+\textbf{FR-1.5} The system must automatically convert the idle time data into discrete binary matrices. \\
+\textbf{FR-1.6} The system needs to record the transformed free time data into the database. \\
+\\
+\textbf{UC-02 Process Booking Request} \\
+\textbf{FR-2.1} The system must allow the administrator to enter the desired subject and target branch for booking. \\
+\textbf{FR-2.2} The system must evaluate limitations, including instructor availability and branch capacity, to create a compliant schedule. \\
+\textbf{FR-2.3} The system uses heuristic scoring to immediately suggest the best option if no results matching the specific request are found. \\
+\textbf{FR-2.4} The system must display the XAI Trace Logs decision records within the booking screen so that the administrator can see the CSP conditions used by the system in making decisions. \\
+\textbf{FR-2.5} The system needs to calculate the number of concurrent bookings against the maximum capacity set for each branch. \\
+\textbf{FR-2.6} The system needs to track the total capacity threshold of each branch, instead of specifying individual classroom names. \\
+\textbf{FR-2.7} The system must display "At Capacity" during periods when new bookings would cause the number of classes to exceed the branch's capacity limit. \\
+\textbf{FR-2.8} The system must systematically prevent branch overbooking before confirming the class schedule. \\
+\\
+\textbf{Business Rules of UC-02} \\
+\textbf{BR-1} An instructor can only be scheduled to teach one class at a time. \\
+\textbf{BR-2} The total number of concurrent bookings must not exceed the designated capacity limit of that branch. \\
+\textbf{BR-3} The system will be a decision-support tool and will not perform fully automated booking like a black-box. The final booking confirmation must be processed by an administrator only, allowing for constraints to be negotiated with the customer to confirm. \\
+\\
+\textbf{UC-03 Travel Buffer System} \\
+\textbf{FR-3.1} The system must include an interface allowing administrators to define and customize travel durations between specific branches. \\
+\textbf{FR-3.2} The system automatically uses a default travel time of 30 minutes for branches that have not been set. \\
+\textbf{FR-3.3} The system must automatically calculate and adjust the available start time for instructors based on the set travel time. \\
+\textbf{FR-3.4} The system must automatically exclude physically impossible transit paths from timetable searches without relying on external APIs. \\
+\textbf{FR-3.5} The system must clearly display the calculated travel time on the master schedule using the words "Travel Needed". \\
+\\
+\textbf{Business Rules of UC-03} \\
+\textbf{BR-4} If class scheduling requires an instructor to teach at different branches consecutively, the system must always enforce a commute buffer. If a specific travel duration for that branch pair is not configured, the system will apply a default travel buffer of 30 minutes. \\
+\\
+\textbf{UC-04 View dashboard} \\
+\textbf{FR-4.1} The system must display the Master Schedule View, which is designed to replace traditional spreadsheets. \\
+\textbf{FR-4.2} The system must display all booked sessions in real-time. \\
+\textbf{FR-4.3} The system must display instructor assignments on the dashboard. \\
+\textbf{FR-4.4} The system must display travel buffer information between branches on the dashboard. \\
+\textbf{FR-4.5} The system must display "Travel Needed" on the Master Schedule view for the calculated trip. \\
+\textbf{FR-4.6} The system must have an operational filtering function based on the teacher's name. \\
+\textbf{FR-4.7} The system must have a function to filter data by branch. \\
+\textbf{FR-4.8} The system must have a function to filter data by date. \\
+\\
+\textbf{UC-05 Execute automated backup} \\
+\textbf{FR-5.1} The system must be able to automatically create database snapshots according to a scheduled time. \\
+\textbf{FR-5.2} The system must perform asynchronous backups to avoid interfering with or interrupting the real-time operation of the scheduling system. \\
+\textbf{FR-5.3} The system must securely store recovery points. \\
+\textbf{FR-5.4} The system must be able to support rapid restoration of schedule data for all branches in the event of hardware failure or database corruption. \\
 \subsection{SDLC}
 Based on our project scope and team size, we decided to use Agile methodologies. It is perfectly suited for a small, remote team like ours that is still in the learning phase and operating under short deadlines. Agile provides the exact flexibility we need to adapt and succeed.
 
